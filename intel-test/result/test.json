@@ -1,0 +1,16 @@
+{
+    "run_dft": [
+        {
+            "example": [
+                "intel"
+            ],
+            "command": "bash run.sh",
+            "image": "registry.dp.tech/deepmodeling/abacus-intel:latest",
+            "bohrium": {
+                "scass_type": "c2_m4_cpu",
+                "job_type": "container",
+                "platform": "ali"
+            }
+        }
+    ]
+}

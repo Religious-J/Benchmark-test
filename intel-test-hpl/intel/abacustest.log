@@ -1,0 +1,4 @@
+
+Set enviroment ...
+Namespace(command='submit', debug=0, outinfo=1, override=1, param='test.json', save=None)
+ERROR: Can not find the test setting file 'test.json' 
