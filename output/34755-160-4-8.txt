@@ -1,0 +1,782 @@
+================================================================================
+HPLinpack 2.3  --  High-Performance Linpack benchmark  --   December 2, 2018
+Written by A. Petitet and R. Clint Whaley,  Innovative Computing Laboratory, UTK
+Modified by Piotr Luszczek, Innovative Computing Laboratory, UTK
+Modified by Julien Langou, University of Colorado Denver
+================================================================================
+
+An explanation of the input/output parameters follows:
+T/V    : Wall time / encoded variant.
+N      : The order of the coefficient matrix A.
+NB     : The partitioning blocking factor.
+P      : The number of process rows.
+Q      : The number of process columns.
+Time   : Time in seconds to solve the linear system.
+Gflops : Rate of execution for solving the linear system.
+
+The following parameter values will be used:
+
+N      :   34755 
+NB     :     160 
+PMAP   : Row-major process mapping
+P      :       4 
+Q      :       8 
+PFACT  :    Left    Crout    Right 
+NBMIN  :       2        4 
+NDIV   :       2 
+RFACT  :    Left    Crout    Right 
+BCAST  :   1ring 
+DEPTH  :       0 
+SWAP   : Mix (threshold = 64)
+L1     : transposed form
+U      : transposed form
+EQUIL  : yes
+ALIGN  : 8 double precision words
+
+--------------------------------------------------------------------------------
+
+- The matrix A is randomly generated for each test.
+- The following scaled residual check will be computed:
+      ||Ax-b||_oo / ( eps * ( || x ||_oo * || A ||_oo + || b ||_oo ) * N )
+- The relative machine precision (eps) is taken to be               2.220446e-16
+- Computational tests pass if scaled residuals are less than                16.0
+
+Column=000000160 Fraction= 0.5% Gflops=2.818e+02
+Column=000000320 Fraction= 0.9% Gflops=1.802e+02
+Column=000000480 Fraction= 1.4% Gflops=1.854e+02
+Column=000000640 Fraction= 1.8% Gflops=1.788e+02
+Column=000000800 Fraction= 2.3% Gflops=1.711e+02
+Column=000000960 Fraction= 2.8% Gflops=1.735e+02
+Column=000001120 Fraction= 3.2% Gflops=1.751e+02
+Column=000001280 Fraction= 3.7% Gflops=1.751e+02
+Column=000001440 Fraction= 4.1% Gflops=1.731e+02
+Column=000001600 Fraction= 4.6% Gflops=1.706e+02
+Column=000001760 Fraction= 5.1% Gflops=1.658e+02
+Column=000001920 Fraction= 5.5% Gflops=1.689e+02
+Column=000002080 Fraction= 6.0% Gflops=1.634e+02
+Column=000002240 Fraction= 6.4% Gflops=1.610e+02
+Column=000002400 Fraction= 6.9% Gflops=1.610e+02
+Column=000002560 Fraction= 7.4% Gflops=1.627e+02
+Column=000002720 Fraction= 7.8% Gflops=1.582e+02
+Column=000002880 Fraction= 8.3% Gflops=1.583e+02
+Column=000003040 Fraction= 8.7% Gflops=1.583e+02
+Column=000003200 Fraction= 9.2% Gflops=1.599e+02
+Column=000003360 Fraction= 9.7% Gflops=1.592e+02
+Column=000003520 Fraction=10.1% Gflops=1.589e+02
+Column=000003680 Fraction=10.6% Gflops=1.584e+02
+Column=000003840 Fraction=11.0% Gflops=1.582e+02
+Column=000004000 Fraction=11.5% Gflops=1.575e+02
+Column=000004160 Fraction=12.0% Gflops=1.585e+02
+Column=000004320 Fraction=12.4% Gflops=1.590e+02
+Column=000004480 Fraction=12.9% Gflops=1.595e+02
+Column=000004640 Fraction=13.4% Gflops=1.577e+02
+Column=000004800 Fraction=13.8% Gflops=1.578e+02
+Column=000004960 Fraction=14.3% Gflops=1.579e+02
+Column=000005120 Fraction=14.7% Gflops=1.527e+02
+Column=000005280 Fraction=15.2% Gflops=1.475e+02
+Column=000005440 Fraction=15.7% Gflops=1.423e+02
+Column=000005600 Fraction=16.1% Gflops=1.389e+02
+Column=000005760 Fraction=16.6% Gflops=1.360e+02
+Column=000005920 Fraction=17.0% Gflops=1.338e+02
+Column=000006080 Fraction=17.5% Gflops=1.316e+02
+Column=000006240 Fraction=18.0% Gflops=1.296e+02
+Column=000006400 Fraction=18.4% Gflops=1.276e+02
+Column=000006560 Fraction=18.9% Gflops=1.263e+02
+Column=000006720 Fraction=19.3% Gflops=1.239e+02
+Column=000006880 Fraction=19.8% Gflops=1.224e+02
+Column=000007040 Fraction=20.3% Gflops=1.211e+02
+Column=000007200 Fraction=20.7% Gflops=1.196e+02
+Column=000007360 Fraction=21.2% Gflops=1.199e+02
+Column=000007520 Fraction=21.6% Gflops=1.202e+02
+Column=000007680 Fraction=22.1% Gflops=1.208e+02
+Column=000007840 Fraction=22.6% Gflops=1.211e+02
+Column=000008000 Fraction=23.0% Gflops=1.214e+02
+Column=000008160 Fraction=23.5% Gflops=1.219e+02
+Column=000008320 Fraction=23.9% Gflops=1.223e+02
+Column=000008480 Fraction=24.4% Gflops=1.229e+02
+Column=000008640 Fraction=24.9% Gflops=1.231e+02
+Column=000008800 Fraction=25.3% Gflops=1.234e+02
+Column=000008960 Fraction=25.8% Gflops=1.238e+02
+Column=000009120 Fraction=26.2% Gflops=1.243e+02
+Column=000009280 Fraction=26.7% Gflops=1.246e+02
+Column=000009440 Fraction=27.2% Gflops=1.254e+02
+Column=000009600 Fraction=27.6% Gflops=1.245e+02
+Column=000009760 Fraction=28.1% Gflops=1.234e+02
+Column=000009920 Fraction=28.5% Gflops=1.222e+02
+Column=000010080 Fraction=29.0% Gflops=1.202e+02
+Column=000010240 Fraction=29.5% Gflops=1.194e+02
+Column=000010400 Fraction=29.9% Gflops=1.188e+02
+Column=000010560 Fraction=30.4% Gflops=1.177e+02
+Column=000010720 Fraction=30.8% Gflops=1.165e+02
+Column=000010880 Fraction=31.3% Gflops=1.155e+02
+Column=000011040 Fraction=31.8% Gflops=1.148e+02
+Column=000011200 Fraction=32.2% Gflops=1.133e+02
+Column=000011360 Fraction=32.7% Gflops=1.127e+02
+Column=000011520 Fraction=33.1% Gflops=1.120e+02
+Column=000011680 Fraction=33.6% Gflops=1.115e+02
+Column=000011840 Fraction=34.1% Gflops=1.117e+02
+Column=000012000 Fraction=34.5% Gflops=1.119e+02
+Column=000012160 Fraction=35.0% Gflops=1.122e+02
+Column=000012320 Fraction=35.4% Gflops=1.125e+02
+Column=000012480 Fraction=35.9% Gflops=1.128e+02
+Column=000012640 Fraction=36.4% Gflops=1.131e+02
+Column=000012800 Fraction=36.8% Gflops=1.133e+02
+Column=000012960 Fraction=37.3% Gflops=1.136e+02
+Column=000013120 Fraction=37.7% Gflops=1.136e+02
+Column=000013280 Fraction=38.2% Gflops=1.137e+02
+Column=000013440 Fraction=38.7% Gflops=1.139e+02
+Column=000013600 Fraction=39.1% Gflops=1.142e+02
+Column=000013760 Fraction=39.6% Gflops=1.142e+02
+Column=000013920 Fraction=40.1% Gflops=1.144e+02
+Column=000014080 Fraction=40.5% Gflops=1.146e+02
+Column=000014240 Fraction=41.0% Gflops=1.147e+02
+Column=000014400 Fraction=41.4% Gflops=1.148e+02
+Column=000014560 Fraction=41.9% Gflops=1.149e+02
+Column=000014720 Fraction=42.4% Gflops=1.141e+02
+Column=000014880 Fraction=42.8% Gflops=1.137e+02
+Column=000015040 Fraction=43.3% Gflops=1.132e+02
+Column=000015200 Fraction=43.7% Gflops=1.128e+02
+Column=000015360 Fraction=44.2% Gflops=1.124e+02
+Column=000015520 Fraction=44.7% Gflops=1.120e+02
+Column=000015680 Fraction=45.1% Gflops=1.116e+02
+Column=000015840 Fraction=45.6% Gflops=1.112e+02
+Column=000016000 Fraction=46.0% Gflops=1.107e+02
+Column=000016160 Fraction=46.5% Gflops=1.103e+02
+Column=000016320 Fraction=47.0% Gflops=1.099e+02
+Column=000016480 Fraction=47.4% Gflops=1.094e+02
+Column=000016640 Fraction=47.9% Gflops=1.091e+02
+Column=000016800 Fraction=48.3% Gflops=1.088e+02
+Column=000016960 Fraction=48.8% Gflops=1.081e+02
+Column=000017120 Fraction=49.3% Gflops=1.075e+02
+Column=000017280 Fraction=49.7% Gflops=1.072e+02
+Column=000017440 Fraction=50.2% Gflops=1.069e+02
+Column=000017600 Fraction=50.6% Gflops=1.067e+02
+Column=000017760 Fraction=51.1% Gflops=1.065e+02
+Column=000017920 Fraction=51.6% Gflops=1.066e+02
+Column=000018080 Fraction=52.0% Gflops=1.067e+02
+Column=000018240 Fraction=52.5% Gflops=1.067e+02
+Column=000018400 Fraction=52.9% Gflops=1.068e+02
+Column=000018560 Fraction=53.4% Gflops=1.067e+02
+Column=000018720 Fraction=53.9% Gflops=1.069e+02
+Column=000018880 Fraction=54.3% Gflops=1.069e+02
+Column=000019040 Fraction=54.8% Gflops=1.069e+02
+Column=000019200 Fraction=55.2% Gflops=1.070e+02
+Column=000019360 Fraction=55.7% Gflops=1.070e+02
+Column=000019520 Fraction=56.2% Gflops=1.070e+02
+Column=000019680 Fraction=56.6% Gflops=1.070e+02
+Column=000019840 Fraction=57.1% Gflops=1.070e+02
+Column=000020000 Fraction=57.5% Gflops=1.070e+02
+Column=000020160 Fraction=58.0% Gflops=1.071e+02
+Column=000020320 Fraction=58.5% Gflops=1.071e+02
+Column=000020480 Fraction=58.9% Gflops=1.072e+02
+Column=000020640 Fraction=59.4% Gflops=1.072e+02
+Column=000020800 Fraction=59.8% Gflops=1.072e+02
+Column=000020960 Fraction=60.3% Gflops=1.072e+02
+Column=000021120 Fraction=60.8% Gflops=1.071e+02
+Column=000021280 Fraction=61.2% Gflops=1.071e+02
+Column=000021440 Fraction=61.7% Gflops=1.072e+02
+Column=000021600 Fraction=62.1% Gflops=1.071e+02
+Column=000021760 Fraction=62.6% Gflops=1.070e+02
+Column=000021920 Fraction=63.1% Gflops=1.067e+02
+Column=000022080 Fraction=63.5% Gflops=1.063e+02
+Column=000022240 Fraction=64.0% Gflops=1.061e+02
+Column=000022400 Fraction=64.5% Gflops=1.057e+02
+Column=000022560 Fraction=64.9% Gflops=1.056e+02
+Column=000022720 Fraction=65.4% Gflops=1.054e+02
+Column=000022880 Fraction=65.8% Gflops=1.052e+02
+Column=000023040 Fraction=66.3% Gflops=1.050e+02
+Column=000023200 Fraction=66.8% Gflops=1.049e+02
+Column=000023360 Fraction=67.2% Gflops=1.047e+02
+Column=000023520 Fraction=67.7% Gflops=1.046e+02
+Column=000023680 Fraction=68.1% Gflops=1.045e+02
+Column=000023840 Fraction=68.6% Gflops=1.043e+02
+Column=000024000 Fraction=69.1% Gflops=1.043e+02
+Column=000024160 Fraction=69.5% Gflops=1.042e+02
+Column=000024320 Fraction=70.0% Gflops=1.041e+02
+Column=000024480 Fraction=70.4% Gflops=1.040e+02
+Column=000024640 Fraction=70.9% Gflops=1.038e+02
+Column=000024800 Fraction=71.4% Gflops=1.036e+02
+Column=000024960 Fraction=71.8% Gflops=1.035e+02
+Column=000025120 Fraction=72.3% Gflops=1.034e+02
+Column=000025280 Fraction=72.7% Gflops=1.033e+02
+Column=000025440 Fraction=73.2% Gflops=1.033e+02
+Column=000025600 Fraction=73.7% Gflops=1.032e+02
+Column=000025760 Fraction=74.1% Gflops=1.031e+02
+Column=000025920 Fraction=74.6% Gflops=1.030e+02
+Column=000026080 Fraction=75.0% Gflops=1.028e+02
+Column=000026240 Fraction=75.5% Gflops=1.027e+02
+Column=000026400 Fraction=76.0% Gflops=1.025e+02
+Column=000026560 Fraction=76.4% Gflops=1.024e+02
+Column=000026720 Fraction=76.9% Gflops=1.023e+02
+Column=000026880 Fraction=77.3% Gflops=1.021e+02
+Column=000027040 Fraction=77.8% Gflops=1.020e+02
+Column=000027200 Fraction=78.3% Gflops=1.018e+02
+Column=000027360 Fraction=78.7% Gflops=1.017e+02
+Column=000027520 Fraction=79.2% Gflops=1.016e+02
+Column=000027680 Fraction=79.6% Gflops=1.016e+02
+Column=000027840 Fraction=80.1% Gflops=1.015e+02
+Column=000028000 Fraction=80.6% Gflops=1.013e+02
+Column=000028160 Fraction=81.0% Gflops=1.012e+02
+Column=000028320 Fraction=81.5% Gflops=1.011e+02
+Column=000028480 Fraction=81.9% Gflops=1.010e+02
+Column=000028640 Fraction=82.4% Gflops=1.009e+02
+Column=000028800 Fraction=82.9% Gflops=1.009e+02
+Column=000028960 Fraction=83.3% Gflops=1.007e+02
+Column=000029120 Fraction=83.8% Gflops=1.007e+02
+Column=000029280 Fraction=84.2% Gflops=1.005e+02
+Column=000029440 Fraction=84.7% Gflops=1.005e+02
+Column=000029600 Fraction=85.2% Gflops=1.004e+02
+Column=000029760 Fraction=85.6% Gflops=1.003e+02
+Column=000029920 Fraction=86.1% Gflops=1.002e+02
+Column=000030080 Fraction=86.5% Gflops=1.002e+02
+Column=000030240 Fraction=87.0% Gflops=1.001e+02
+Column=000030400 Fraction=87.5% Gflops=1.000e+02
+Column=000030560 Fraction=87.9% Gflops=9.999e+01
+Column=000030720 Fraction=88.4% Gflops=9.995e+01
+Column=000030880 Fraction=88.9% Gflops=9.985e+01
+Column=000031040 Fraction=89.3% Gflops=9.977e+01
+Column=000031200 Fraction=89.8% Gflops=9.969e+01
+Column=000031360 Fraction=90.2% Gflops=9.964e+01
+Column=000031520 Fraction=90.7% Gflops=9.959e+01
+Column=000031680 Fraction=91.2% Gflops=9.954e+01
+Column=000031840 Fraction=91.6% Gflops=9.950e+01
+Column=000032000 Fraction=92.1% Gflops=9.945e+01
+Column=000032160 Fraction=92.5% Gflops=9.943e+01
+Column=000032320 Fraction=93.0% Gflops=9.935e+01
+Column=000032480 Fraction=93.5% Gflops=9.932e+01
+Column=000032640 Fraction=93.9% Gflops=9.919e+01
+Column=000032800 Fraction=94.4% Gflops=9.915e+01
+Column=000032960 Fraction=94.8% Gflops=9.904e+01
+Column=000033120 Fraction=95.3% Gflops=9.900e+01
+Column=000033280 Fraction=95.8% Gflops=9.897e+01
+Column=000033440 Fraction=96.2% Gflops=9.895e+01
+Column=000033600 Fraction=96.7% Gflops=9.881e+01
+Column=000033760 Fraction=97.1% Gflops=9.879e+01
+Column=000033920 Fraction=97.6% Gflops=9.877e+01
+Column=000034080 Fraction=98.1% Gflops=9.876e+01
+Column=000034240 Fraction=98.5% Gflops=9.871e+01
+Column=000034400 Fraction=99.0% Gflops=9.870e+01
+Column=000034560 Fraction=99.4% Gflops=9.870e+01
+Column=000034720 Fraction=99.9% Gflops=9.869e+01
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR00L2L2       34755   160     4     8             283.77             9.8633e+01
+HPL_pdgesv() start time Sat May  4 10:51:32 2024
+
+HPL_pdgesv() end time   Sat May  4 10:56:16 2024
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              12.25
++ Max aggregated wall time pfact . . :              11.91
++ Max aggregated wall time mxswp . . :              11.86
+Max aggregated wall time update  . . :             212.05
++ Max aggregated wall time laswp . . :              15.42
+Max aggregated wall time up tr sv  . :               0.19
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=   1.28298466e-03 ...... PASSED
+Column=000000160 Fraction= 0.5% Gflops=2.319e+02
+Column=000000320 Fraction= 0.9% Gflops=1.739e+02
+Column=000000480 Fraction= 1.4% Gflops=1.777e+02
+Column=000000640 Fraction= 1.8% Gflops=1.555e+02
+Column=000000800 Fraction= 2.3% Gflops=1.130e+02
+Column=000000960 Fraction= 2.8% Gflops=1.048e+02
+Column=000001120 Fraction= 3.2% Gflops=1.005e+02
+Column=000001280 Fraction= 3.7% Gflops=9.453e+01
+Column=000001440 Fraction= 4.1% Gflops=9.252e+01
+Column=000001600 Fraction= 4.6% Gflops=8.889e+01
+Column=000001760 Fraction= 5.1% Gflops=8.844e+01
+Column=000001920 Fraction= 5.5% Gflops=8.806e+01
+Column=000002080 Fraction= 6.0% Gflops=8.751e+01
+Column=000002240 Fraction= 6.4% Gflops=8.651e+01
+Column=000002400 Fraction= 6.9% Gflops=8.610e+01
+Column=000002560 Fraction= 7.4% Gflops=8.496e+01
+Column=000002720 Fraction= 7.8% Gflops=8.664e+01
+Column=000002880 Fraction= 8.3% Gflops=8.876e+01
+Column=000003040 Fraction= 8.7% Gflops=9.085e+01
+Column=000003200 Fraction= 9.2% Gflops=9.304e+01
+Column=000003360 Fraction= 9.7% Gflops=9.512e+01
+Column=000003520 Fraction=10.1% Gflops=9.686e+01
+Column=000003680 Fraction=10.6% Gflops=9.828e+01
+Column=000003840 Fraction=11.0% Gflops=1.002e+02
+Column=000004000 Fraction=11.5% Gflops=9.855e+01
+Column=000004160 Fraction=12.0% Gflops=9.634e+01
+Column=000004320 Fraction=12.4% Gflops=9.421e+01
+Column=000004480 Fraction=12.9% Gflops=9.370e+01
+Column=000004640 Fraction=13.4% Gflops=9.303e+01
+Column=000004800 Fraction=13.8% Gflops=9.181e+01
+Column=000004960 Fraction=14.3% Gflops=9.183e+01
+Column=000005120 Fraction=14.7% Gflops=9.119e+01
+Column=000005280 Fraction=15.2% Gflops=9.076e+01
+Column=000005440 Fraction=15.7% Gflops=9.061e+01
+Column=000005600 Fraction=16.1% Gflops=9.023e+01
+Column=000005760 Fraction=16.6% Gflops=8.984e+01
+Column=000005920 Fraction=17.0% Gflops=8.984e+01
+Column=000006080 Fraction=17.5% Gflops=9.066e+01
+Column=000006240 Fraction=18.0% Gflops=9.160e+01
+Column=000006400 Fraction=18.4% Gflops=9.246e+01
+Column=000006560 Fraction=18.9% Gflops=9.354e+01
+Column=000006720 Fraction=19.3% Gflops=9.414e+01
+Column=000006880 Fraction=19.8% Gflops=9.450e+01
+Column=000007040 Fraction=20.3% Gflops=9.518e+01
+Column=000007200 Fraction=20.7% Gflops=9.579e+01
+Column=000007360 Fraction=21.2% Gflops=9.521e+01
+Column=000007520 Fraction=21.6% Gflops=9.385e+01
+Column=000007680 Fraction=22.1% Gflops=9.286e+01
+Column=000007840 Fraction=22.6% Gflops=9.245e+01
+Column=000008000 Fraction=23.0% Gflops=9.148e+01
+Column=000008160 Fraction=23.5% Gflops=9.085e+01
+Column=000008320 Fraction=23.9% Gflops=9.017e+01
+Column=000008480 Fraction=24.4% Gflops=8.983e+01
+Column=000008640 Fraction=24.9% Gflops=8.850e+01
+Column=000008800 Fraction=25.3% Gflops=8.742e+01
+Column=000008960 Fraction=25.8% Gflops=8.720e+01
+Column=000009120 Fraction=26.2% Gflops=8.693e+01
+Column=000009280 Fraction=26.7% Gflops=8.637e+01
+Column=000009440 Fraction=27.2% Gflops=8.600e+01
+Column=000009600 Fraction=27.6% Gflops=8.582e+01
+Column=000009760 Fraction=28.1% Gflops=8.627e+01
+Column=000009920 Fraction=28.5% Gflops=8.662e+01
+Column=000010080 Fraction=29.0% Gflops=8.704e+01
+Column=000010240 Fraction=29.5% Gflops=8.732e+01
+Column=000010400 Fraction=29.9% Gflops=8.761e+01
+Column=000010560 Fraction=30.4% Gflops=8.774e+01
+Column=000010720 Fraction=30.8% Gflops=8.816e+01
+Column=000010880 Fraction=31.3% Gflops=8.841e+01
+Column=000011040 Fraction=31.8% Gflops=8.880e+01
+Column=000011200 Fraction=32.2% Gflops=8.910e+01
+Column=000011360 Fraction=32.7% Gflops=8.941e+01
+Column=000011520 Fraction=33.1% Gflops=8.973e+01
+Column=000011680 Fraction=33.6% Gflops=9.002e+01
+Column=000011840 Fraction=34.1% Gflops=8.957e+01
+Column=000012000 Fraction=34.5% Gflops=8.923e+01
+Column=000012160 Fraction=35.0% Gflops=8.909e+01
+Column=000012320 Fraction=35.4% Gflops=8.877e+01
+Column=000012480 Fraction=35.9% Gflops=8.802e+01
+Column=000012640 Fraction=36.4% Gflops=8.772e+01
+Column=000012800 Fraction=36.8% Gflops=8.719e+01
+Column=000012960 Fraction=37.3% Gflops=8.735e+01
+Column=000013120 Fraction=37.7% Gflops=8.655e+01
+Column=000013280 Fraction=38.2% Gflops=8.615e+01
+Column=000013440 Fraction=38.7% Gflops=8.603e+01
+Column=000013600 Fraction=39.1% Gflops=8.581e+01
+Column=000013760 Fraction=39.6% Gflops=8.562e+01
+Column=000013920 Fraction=40.1% Gflops=8.541e+01
+Column=000014080 Fraction=40.5% Gflops=8.520e+01
+Column=000014240 Fraction=41.0% Gflops=8.515e+01
+Column=000014400 Fraction=41.4% Gflops=8.501e+01
+Column=000014560 Fraction=41.9% Gflops=8.474e+01
+Column=000014720 Fraction=42.4% Gflops=8.477e+01
+Column=000014880 Fraction=42.8% Gflops=8.503e+01
+Column=000015040 Fraction=43.3% Gflops=8.525e+01
+Column=000015200 Fraction=43.7% Gflops=8.542e+01
+Column=000015360 Fraction=44.2% Gflops=8.562e+01
+Column=000015520 Fraction=44.7% Gflops=8.588e+01
+Column=000015680 Fraction=45.1% Gflops=8.605e+01
+Column=000015840 Fraction=45.6% Gflops=8.625e+01
+Column=000016000 Fraction=46.0% Gflops=8.645e+01
+Column=000016160 Fraction=46.5% Gflops=8.663e+01
+Column=000016320 Fraction=47.0% Gflops=8.684e+01
+Column=000016480 Fraction=47.4% Gflops=8.699e+01
+Column=000016640 Fraction=47.9% Gflops=8.715e+01
+Column=000016800 Fraction=48.3% Gflops=8.727e+01
+Column=000016960 Fraction=48.8% Gflops=8.737e+01
+Column=000017120 Fraction=49.3% Gflops=8.751e+01
+Column=000017280 Fraction=49.7% Gflops=8.768e+01
+Column=000017440 Fraction=50.2% Gflops=8.772e+01
+Column=000017600 Fraction=50.6% Gflops=8.753e+01
+Column=000017760 Fraction=51.1% Gflops=8.729e+01
+Column=000017920 Fraction=51.6% Gflops=8.711e+01
+Column=000018080 Fraction=52.0% Gflops=8.705e+01
+Column=000018240 Fraction=52.5% Gflops=8.688e+01
+Column=000018400 Fraction=52.9% Gflops=8.675e+01
+Column=000018560 Fraction=53.4% Gflops=8.665e+01
+Column=000018720 Fraction=53.9% Gflops=8.656e+01
+Column=000018880 Fraction=54.3% Gflops=8.650e+01
+Column=000019040 Fraction=54.8% Gflops=8.641e+01
+Column=000019200 Fraction=55.2% Gflops=8.643e+01
+Column=000019360 Fraction=55.7% Gflops=8.637e+01
+Column=000019520 Fraction=56.2% Gflops=8.629e+01
+Column=000019680 Fraction=56.6% Gflops=8.605e+01
+Column=000019840 Fraction=57.1% Gflops=8.592e+01
+Column=000020000 Fraction=57.5% Gflops=8.578e+01
+Column=000020160 Fraction=58.0% Gflops=8.570e+01
+Column=000020320 Fraction=58.5% Gflops=8.563e+01
+Column=000020480 Fraction=58.9% Gflops=8.554e+01
+Column=000020640 Fraction=59.4% Gflops=8.549e+01
+Column=000020800 Fraction=59.8% Gflops=8.540e+01
+Column=000020960 Fraction=60.3% Gflops=8.530e+01
+Column=000021120 Fraction=60.8% Gflops=8.522e+01
+Column=000021280 Fraction=61.2% Gflops=8.515e+01
+Column=000021440 Fraction=61.7% Gflops=8.512e+01
+Column=000021600 Fraction=62.1% Gflops=8.495e+01
+Column=000021760 Fraction=62.6% Gflops=8.484e+01
+Column=000021920 Fraction=63.1% Gflops=8.478e+01
+Column=000022080 Fraction=63.5% Gflops=8.467e+01
+Column=000022240 Fraction=64.0% Gflops=8.460e+01
+Column=000022400 Fraction=64.5% Gflops=8.453e+01
+Column=000022560 Fraction=64.9% Gflops=8.445e+01
+Column=000022720 Fraction=65.4% Gflops=8.443e+01
+Column=000022880 Fraction=65.8% Gflops=8.411e+01
+Column=000023040 Fraction=66.3% Gflops=8.406e+01
+Column=000023200 Fraction=66.8% Gflops=8.402e+01
+Column=000023360 Fraction=67.2% Gflops=8.393e+01
+Column=000023520 Fraction=67.7% Gflops=8.385e+01
+Column=000023680 Fraction=68.1% Gflops=8.388e+01
+Column=000023840 Fraction=68.6% Gflops=8.391e+01
+Column=000024000 Fraction=69.1% Gflops=8.395e+01
+Column=000024160 Fraction=69.5% Gflops=8.399e+01
+Column=000024320 Fraction=70.0% Gflops=8.399e+01
+Column=000024480 Fraction=70.4% Gflops=8.400e+01
+Column=000024640 Fraction=70.9% Gflops=8.399e+01
+Column=000024800 Fraction=71.4% Gflops=8.401e+01
+Column=000024960 Fraction=71.8% Gflops=8.402e+01
+Column=000025120 Fraction=72.3% Gflops=8.404e+01
+Column=000025280 Fraction=72.7% Gflops=8.407e+01
+Column=000025440 Fraction=73.2% Gflops=8.408e+01
+Column=000025600 Fraction=73.7% Gflops=8.411e+01
+Column=000025760 Fraction=74.1% Gflops=8.413e+01
+Column=000025920 Fraction=74.6% Gflops=8.412e+01
+Column=000026080 Fraction=75.0% Gflops=8.415e+01
+Column=000026240 Fraction=75.5% Gflops=8.416e+01
+Column=000026400 Fraction=76.0% Gflops=8.419e+01
+Column=000026560 Fraction=76.4% Gflops=8.420e+01
+Column=000026720 Fraction=76.9% Gflops=8.421e+01
+Column=000026880 Fraction=77.3% Gflops=8.419e+01
+Column=000027040 Fraction=77.8% Gflops=8.422e+01
+Column=000027200 Fraction=78.3% Gflops=8.420e+01
+Column=000027360 Fraction=78.7% Gflops=8.421e+01
+Column=000027520 Fraction=79.2% Gflops=8.415e+01
+Column=000027680 Fraction=79.6% Gflops=8.416e+01
+Column=000027840 Fraction=80.1% Gflops=8.412e+01
+Column=000028000 Fraction=80.6% Gflops=8.411e+01
+Column=000028160 Fraction=81.0% Gflops=8.411e+01
+Column=000028320 Fraction=81.5% Gflops=8.412e+01
+Column=000028480 Fraction=81.9% Gflops=8.409e+01
+Column=000028640 Fraction=82.4% Gflops=8.409e+01
+Column=000028800 Fraction=82.9% Gflops=8.407e+01
+Column=000028960 Fraction=83.3% Gflops=8.409e+01
+Column=000029120 Fraction=83.8% Gflops=8.408e+01
+Column=000029280 Fraction=84.2% Gflops=8.408e+01
+Column=000029440 Fraction=84.7% Gflops=8.403e+01
+Column=000029600 Fraction=85.2% Gflops=8.403e+01
+Column=000029760 Fraction=85.6% Gflops=8.400e+01
+Column=000029920 Fraction=86.1% Gflops=8.398e+01
+Column=000030080 Fraction=86.5% Gflops=8.397e+01
+Column=000030240 Fraction=87.0% Gflops=8.397e+01
+Column=000030400 Fraction=87.5% Gflops=8.391e+01
+Column=000030560 Fraction=87.9% Gflops=8.391e+01
+Column=000030720 Fraction=88.4% Gflops=8.385e+01
+Column=000030880 Fraction=88.9% Gflops=8.384e+01
+Column=000031040 Fraction=89.3% Gflops=8.382e+01
+Column=000031200 Fraction=89.8% Gflops=8.379e+01
+Column=000031360 Fraction=90.2% Gflops=8.379e+01
+Column=000031520 Fraction=90.7% Gflops=8.378e+01
+Column=000031680 Fraction=91.2% Gflops=8.377e+01
+Column=000031840 Fraction=91.6% Gflops=8.373e+01
+Column=000032000 Fraction=92.1% Gflops=8.371e+01
+Column=000032160 Fraction=92.5% Gflops=8.372e+01
+Column=000032320 Fraction=93.0% Gflops=8.368e+01
+Column=000032480 Fraction=93.5% Gflops=8.367e+01
+Column=000032640 Fraction=93.9% Gflops=8.365e+01
+Column=000032800 Fraction=94.4% Gflops=8.364e+01
+Column=000032960 Fraction=94.8% Gflops=8.364e+01
+Column=000033120 Fraction=95.3% Gflops=8.363e+01
+Column=000033280 Fraction=95.8% Gflops=8.362e+01
+Column=000033440 Fraction=96.2% Gflops=8.361e+01
+Column=000033600 Fraction=96.7% Gflops=8.354e+01
+Column=000033760 Fraction=97.1% Gflops=8.354e+01
+Column=000033920 Fraction=97.6% Gflops=8.353e+01
+Column=000034080 Fraction=98.1% Gflops=8.353e+01
+Column=000034240 Fraction=98.5% Gflops=8.349e+01
+Column=000034400 Fraction=99.0% Gflops=8.347e+01
+Column=000034560 Fraction=99.4% Gflops=8.346e+01
+Column=000034720 Fraction=99.9% Gflops=8.345e+01
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR00L2L4       34755   160     4     8             335.56             8.3411e+01
+HPL_pdgesv() start time Sat May  4 10:56:20 2024
+
+HPL_pdgesv() end time   Sat May  4 11:01:56 2024
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              13.91
++ Max aggregated wall time pfact . . :              13.56
++ Max aggregated wall time mxswp . . :              13.50
+Max aggregated wall time update  . . :             259.92
++ Max aggregated wall time laswp . . :              18.15
+Max aggregated wall time up tr sv  . :               0.16
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=   1.50927339e-03 ...... PASSED
+Column=000000160 Fraction= 0.5% Gflops=1.471e+02
+Column=000000320 Fraction= 0.9% Gflops=9.340e+01
+Column=000000480 Fraction= 1.4% Gflops=8.369e+01
+Column=000000640 Fraction= 1.8% Gflops=8.161e+01
+Column=000000800 Fraction= 2.3% Gflops=7.917e+01
+Column=000000960 Fraction= 2.8% Gflops=7.810e+01
+Column=000001120 Fraction= 3.2% Gflops=7.757e+01
+Column=000001280 Fraction= 3.7% Gflops=7.757e+01
+Column=000001440 Fraction= 4.1% Gflops=7.847e+01
+Column=000001600 Fraction= 4.6% Gflops=7.731e+01
+Column=000001760 Fraction= 5.1% Gflops=7.324e+01
+Column=000001920 Fraction= 5.5% Gflops=7.202e+01
+Column=000002080 Fraction= 6.0% Gflops=7.205e+01
+Column=000002240 Fraction= 6.4% Gflops=7.220e+01
+Column=000002400 Fraction= 6.9% Gflops=7.393e+01
+Column=000002560 Fraction= 7.4% Gflops=7.595e+01
+Column=000002720 Fraction= 7.8% Gflops=7.834e+01
+Column=000002880 Fraction= 8.3% Gflops=8.067e+01
+Column=000003040 Fraction= 8.7% Gflops=8.272e+01
+Column=000003200 Fraction= 9.2% Gflops=8.479e+01
+Column=000003360 Fraction= 9.7% Gflops=8.748e+01
+Column=000003520 Fraction=10.1% Gflops=8.570e+01
+Column=000003680 Fraction=10.6% Gflops=8.486e+01
+Column=000003840 Fraction=11.0% Gflops=8.451e+01
+Column=000004000 Fraction=11.5% Gflops=8.424e+01
+Column=000004160 Fraction=12.0% Gflops=8.348e+01
+Column=000004320 Fraction=12.4% Gflops=8.338e+01
+Column=000004480 Fraction=12.9% Gflops=8.292e+01
+Column=000004640 Fraction=13.4% Gflops=8.272e+01
+Column=000004800 Fraction=13.8% Gflops=8.279e+01
+Column=000004960 Fraction=14.3% Gflops=8.241e+01
+Column=000005120 Fraction=14.7% Gflops=8.188e+01
+Column=000005280 Fraction=15.2% Gflops=8.176e+01
+Column=000005440 Fraction=15.7% Gflops=8.118e+01
+Column=000005600 Fraction=16.1% Gflops=8.134e+01
+Column=000005760 Fraction=16.6% Gflops=8.089e+01
+Column=000005920 Fraction=17.0% Gflops=8.069e+01
+Column=000006080 Fraction=17.5% Gflops=8.079e+01
+Column=000006240 Fraction=18.0% Gflops=8.143e+01
+Column=000006400 Fraction=18.4% Gflops=8.187e+01
+Column=000006560 Fraction=18.9% Gflops=8.274e+01
+Column=000006720 Fraction=19.3% Gflops=8.312e+01
+Column=000006880 Fraction=19.8% Gflops=8.375e+01
+Column=000007040 Fraction=20.3% Gflops=8.460e+01
+Column=000007200 Fraction=20.7% Gflops=8.528e+01
+Column=000007360 Fraction=21.2% Gflops=8.562e+01
+Column=000007520 Fraction=21.6% Gflops=8.516e+01
+Column=000007680 Fraction=22.1% Gflops=8.473e+01
+Column=000007840 Fraction=22.6% Gflops=8.452e+01
+Column=000008000 Fraction=23.0% Gflops=8.417e+01
+Column=000008160 Fraction=23.5% Gflops=8.392e+01
+Column=000008320 Fraction=23.9% Gflops=8.395e+01
+Column=000008480 Fraction=24.4% Gflops=8.372e+01
+Column=000008640 Fraction=24.9% Gflops=8.360e+01
+Column=000008800 Fraction=25.3% Gflops=8.330e+01
+Column=000008960 Fraction=25.8% Gflops=8.319e+01
+Column=000009120 Fraction=26.2% Gflops=8.290e+01
+Column=000009280 Fraction=26.7% Gflops=8.244e+01
+Column=000009440 Fraction=27.2% Gflops=8.221e+01
+Column=000009600 Fraction=27.6% Gflops=8.143e+01
+Column=000009760 Fraction=28.1% Gflops=8.126e+01
+Column=000009920 Fraction=28.5% Gflops=8.111e+01
+Column=000010080 Fraction=29.0% Gflops=8.096e+01
+Column=000010240 Fraction=29.5% Gflops=8.081e+01
+Column=000010400 Fraction=29.9% Gflops=8.094e+01
+Column=000010560 Fraction=30.4% Gflops=8.108e+01
+Column=000010720 Fraction=30.8% Gflops=8.142e+01
+Column=000010880 Fraction=31.3% Gflops=8.182e+01
+Column=000011040 Fraction=31.8% Gflops=8.219e+01
+Column=000011200 Fraction=32.2% Gflops=8.229e+01
+Column=000011360 Fraction=32.7% Gflops=8.260e+01
+Column=000011520 Fraction=33.1% Gflops=8.312e+01
+Column=000011680 Fraction=33.6% Gflops=8.329e+01
+Column=000011840 Fraction=34.1% Gflops=8.338e+01
+Column=000012000 Fraction=34.5% Gflops=8.365e+01
+Column=000012160 Fraction=35.0% Gflops=8.396e+01
+Column=000012320 Fraction=35.4% Gflops=8.423e+01
+[mpiexec@levono] Sending Ctrl-C to processes as requested
+[mpiexec@levono] Press Ctrl-C again to force abort
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 4342 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 1 PID 4343 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 2 PID 4344 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 3 PID 4345 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 4 PID 4346 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 5 PID 4347 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 6 PID 4348 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 7 PID 4349 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 8 PID 4350 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 9 PID 4351 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 10 PID 4352 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 11 PID 4353 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 12 PID 4354 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 13 PID 4355 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 14 PID 4356 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 15 PID 4357 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 16 PID 4358 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 17 PID 4359 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 18 PID 4360 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 19 PID 4361 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 20 PID 4362 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 21 PID 4363 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 22 PID 4364 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 23 PID 4365 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 24 PID 4366 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 25 PID 4367 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 26 PID 4368 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 27 PID 4369 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 28 PID 4370 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 29 PID 4371 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 30 PID 4372 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 31 PID 4373 RUNNING AT levono
+=   KILLED BY SIGNAL: 2 (Interrupt)
+===================================================================================
