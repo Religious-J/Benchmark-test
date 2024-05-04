@@ -91,9 +91,9 @@ Gflops: The peak performance of the test, that is, the number of floating point 
 
 ## Using script
 
-In order to easily obtain the theoretical merit of the HPL.dat parameters, you can easily use a script to complete it.
+In order to easily obtain the theoretical merit of the HPL.dat parameters, you can easily use `./run.sh` script to complete it.
 
-Before using scirpt, python environment dependencies need to be installed.
+Before using the scirpt, python environment dependencies need to be installed.
 
 ```sh
 pip install py-cpuinfo
